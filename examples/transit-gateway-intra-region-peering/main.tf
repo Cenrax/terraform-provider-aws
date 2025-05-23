@@ -14,7 +14,7 @@ resource "aws_vpc" "example_vpc_1" {
   cidr_block = "10.1.0.0/16"
 
   tags = {
-    Name = "terraform-example-vpc-1"
+    Name = "Opsly-subham"
   }
 }
 
@@ -23,7 +23,7 @@ resource "aws_subnet" "example_subnet_1" {
   vpc_id     = aws_vpc.example_vpc_1.id
 
   tags = {
-    Name = "terraform-example-subnet-1"
+    Name = "Opsly-subham"
   }
 }
 
@@ -31,7 +31,7 @@ resource "aws_vpc" "example_vpc_2" {
   cidr_block = "10.2.0.0/16"
 
   tags = {
-    Name = "terraform-example-vpc-2"
+    Name = "Opsly-subham"
   }
 }
 
@@ -40,14 +40,14 @@ resource "aws_subnet" "example_subnet_2" {
   vpc_id     = aws_vpc.example_vpc_2.id
 
   tags = {
-    Name = "terraform-example-subnet-2"
+    Name = "Opsly-subham"
   }
 }
 
 # Create the first Transit Gateway.
 resource "aws_ec2_transit_gateway" "example_tgw_1" {
   tags = {
-    Name = "terraform-example-tgw-1"
+    Name = "Opsly-subham"
   }
 }
 
@@ -58,14 +58,14 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "example_vpc_1_attachment" {
   vpc_id             = aws_vpc.example_vpc_1.id
 
   tags = {
-    Name = "terraform-example-vpc-attach-1"
+    Name = "Opsly-subham"
   }
 }
 
 # Create the second Transit Gateway in the same region.
 resource "aws_ec2_transit_gateway" "example_tgw_2" {
   tags = {
-    Name = "terraform-example-tgw-2"
+    Name = "Opsly-subham"
   }
 }
 
@@ -76,7 +76,7 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "example_vpc_2_attachment" {
   vpc_id             = aws_vpc.example_vpc_2.id
 
   tags = {
-    Name = "terraform-example-vpc-attach-2"
+    Name = "Opsly-subham"
   }
 }
 
@@ -88,7 +88,7 @@ resource "aws_ec2_transit_gateway_peering_attachment" "example_source_peering" {
   transit_gateway_id      = aws_ec2_transit_gateway.example_tgw_1.id
   peer_transit_gateway_id = aws_ec2_transit_gateway.example_tgw_2.id
   tags = {
-    Name = "terraform-example-tgw-peering"
+    Name = "Opsly-subham"
     Side = "Creator"
   }
 }
@@ -107,7 +107,7 @@ data "aws_ec2_transit_gateway_peering_attachment" "example_accepter_peering_data
 resource "aws_ec2_transit_gateway_peering_attachment_accepter" "example_accepter" {
   transit_gateway_attachment_id = data.aws_ec2_transit_gateway_peering_attachment.example_accepter_peering_data.id
   tags = {
-    Name = "terraform-example-tgw-peering-accepter"
+    Name = "Opsly-subham"
     Side = "Acceptor"
   }
 }
