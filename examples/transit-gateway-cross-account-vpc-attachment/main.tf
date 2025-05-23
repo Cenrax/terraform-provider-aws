@@ -37,7 +37,7 @@ resource "aws_ec2_transit_gateway" "example" {
   provider = aws.first
 
   tags = {
-    Name = "terraform-example"
+    Name = "Opsly-subham"
   }
 }
 
@@ -47,7 +47,7 @@ resource "aws_ram_resource_share" "example" {
   name = "terraform-example"
 
   tags = {
-    Name = "terraform-example"
+    Name = "Opsly-subham"
   }
 }
 
@@ -73,7 +73,7 @@ resource "aws_vpc" "example" {
   cidr_block = "10.0.0.0/16"
 
   tags = {
-    Name = "terraform-example"
+    Name = "Opsly-subham"
   }
 }
 
@@ -85,7 +85,7 @@ resource "aws_subnet" "example" {
   vpc_id            = aws_vpc.example.id
 
   tags = {
-    Name = "terraform-example"
+    Name = "Opsly-subham"
   }
 }
 
@@ -103,7 +103,7 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "example" {
   vpc_id             = aws_vpc.example.id
 
   tags = {
-    Name = "terraform-example"
+    Name = "Opsly-subham"
     Side = "Creator"
   }
 }
@@ -115,7 +115,7 @@ resource "aws_ec2_transit_gateway_vpc_attachment_accepter" "example" {
   transit_gateway_attachment_id = aws_ec2_transit_gateway_vpc_attachment.example.id
 
   tags = {
-    Name = "terraform-example"
+    Name = "Opsly-subham"
     Side = "Accepter"
   }
 }
