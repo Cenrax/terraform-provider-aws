@@ -7,7 +7,7 @@ resource "aws_vpc" "vpc" {
   enable_dns_hostnames = true
 
   tags = {
-    Name = "example-vpc"
+    Name = "opsly-cloud"
   }
 }
 
@@ -17,7 +17,7 @@ resource "aws_subnet" "subnet" {
   cidr_block = "10.0.0.0/16"
 
   tags = {
-    Name = "example-subnet"
+    Name = "opsly-cloud"
   }
 }
 
@@ -26,7 +26,7 @@ resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.vpc.id
 
   tags = {
-    Name = "example-igw"
+    Name = "opsly-cloud"
   }
 }
 
@@ -50,7 +50,7 @@ resource "aws_route_table_association" "route_table_association" {
 resource "aws_security_group" "security_group" {
   vpc_id = aws_vpc.vpc.id
   tags = {
-    Name = "example-security-group"
+    Name = "opsly-cloud"
   }
 }
 
