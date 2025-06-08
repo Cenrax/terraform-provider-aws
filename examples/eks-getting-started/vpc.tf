@@ -13,9 +13,7 @@ resource "aws_vpc" "demo" {
   cidr_block = "10.0.0.0/16"
 
   tags = tomap({
-    "Name"                                      = "test",
-    "kubernetes.io/cluster/${var.cluster_name}" = "shared",
-    "updated_content_with_tag"                   = "true",
+    "Name" = "test",
   })
 }
 
