@@ -24,6 +24,11 @@ resource "aws_iam_role" "demo-node" {
   ]
 }
 POLICY
+
+  tags = {
+    Name   = "terraform-eks-demo-node-role"
+    subham = "true"
+  }
 }
 
 resource "aws_iam_role_policy_attachment" "demo-node-AmazonEKSWorkerNodePolicy" {
@@ -51,6 +56,11 @@ resource "aws_eks_node_group" "demo" {
     desired_size = 1
     max_size     = 1
     min_size     = 1
+  }
+
+  tags = {
+    Name   = "terraform-eks-demo-node-group"
+    subham = "true"
   }
 
   depends_on = [
