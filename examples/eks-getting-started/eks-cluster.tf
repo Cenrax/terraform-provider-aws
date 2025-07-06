@@ -25,6 +25,11 @@ resource "aws_iam_role" "demo-cluster" {
   ]
 }
 POLICY
+
+  tags = {
+    Name    = "terraform-eks-demo-cluster-role"
+    subham  = "true"
+  }
 }
 
 resource "aws_iam_role_policy_attachment" "demo-cluster-AmazonEKSClusterPolicy" {
@@ -50,7 +55,8 @@ resource "aws_security_group" "demo-cluster" {
   }
 
   tags = {
-    Name = "terraform-eks-demo"
+    Name   = "terraform-eks-demo"
+    subham = "true"
   }
 }
 
@@ -71,6 +77,11 @@ resource "aws_eks_cluster" "demo" {
   vpc_config {
     security_group_ids = [aws_security_group.demo-cluster.id]
     subnet_ids         = aws_subnet.demo[*].id
+  }
+
+  tags = {
+    Name   = "terraform-eks-demo-cluster"
+    subham = "true"
   }
 
   depends_on = [
